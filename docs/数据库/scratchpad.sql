@@ -3,7 +3,7 @@ CREATE DATABASE `scratch` CHARSET UTF8;
 USE `scratch`;
 
 CREATE TABLE `user`(
-`username` VARCHAR(30) PRIMARY KEY,
+`username` VARCHAR(32) PRIMARY KEY,
 `password` VARCHAR(30) NOT NULL,
 `nickname` VARCHAR(30)  NOT NULL,
 `gender` CHAR(1)  NOT NULL,
