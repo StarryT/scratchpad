@@ -30,25 +30,42 @@ public class WrapParamUtils {
 
 	/**
 	 * request 参数写入 Map
+	 * 
 	 * @param request
 	 * @return Map<String,Object>
 	 * @throws IOException
 	 */
-	public static Map<String,Object> paramToMap(HttpServletRequest request) throws IOException{
-		Map<String,Object> paramMap= new HashMap<String,Object>();
+	public static Map<String, Object> paramToMap(HttpServletRequest request) throws IOException {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
 		ServletInputStream is = request.getInputStream();
 		String paramString = ValueUtils.convertStreamToString(is);
-		
-		if(ValueUtils.valNotEmpty(paramString)) {
+
+		if (ValueUtils.valNotEmpty(paramString)) {
 			paramMap = JSON.parseObject(paramString);
-		}else {
+		} else {
 			Enumeration<String> enu = request.getParameterNames();
-			while(enu.hasMoreElements()){
+			while (enu.hasMoreElements()) {
 				String tempEnu = enu.nextElement();
 				paramMap.put(tempEnu, request.getParameter(tempEnu));
 			}
 		}
 		return paramMap;
+	}
+	
+	
+	/**
+	 * json 返回工具
+	 * @param code
+	 * @param msg
+	 * @param data
+	 * @return
+	 */
+	public static String jsonResponse(int code, String msg, Object data) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("code", code);
+		map.put("msg", msg);
+		map.put("data", data);
+		return JSON.toJSONString(map);
 	}
 
 }

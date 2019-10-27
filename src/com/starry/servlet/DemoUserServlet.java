@@ -82,8 +82,8 @@ public class DemoUserServlet extends HttpServlet {
 			userBean.setPassword(String.valueOf(params.get("password")));
 			userBean.setNickname(String.valueOf(params.get("nickname")));
 			userBean.setGender(String.valueOf(params.get("gender")));
-			userBean.setEmail(String.valueOf(params.get("phone")));
-			userBean.setPhone(String.valueOf(params.get("email")));
+			userBean.setEmail(String.valueOf(params.get("email")));
+			userBean.setPhone(String.valueOf(params.get("phone")));
 
 			// 执行新增
 			DemoDao demoDao = new DemoDao();

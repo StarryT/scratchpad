@@ -40,6 +40,10 @@ public class CustomConstant {
 		public static final String UTF8 = "UTF-8";
 		/** session 中的存储用户信息键 */
 		public static final String SESSION_LOGIN_MARK = "loginMark";
+		/** 成功码 */
+		public static final int CODE_SUCCESS = 0;
+		/** 失败码 */
+		public static final int CODE_FAILURE = 1;
 	}
 	
 	
