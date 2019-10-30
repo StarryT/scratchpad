@@ -51,7 +51,7 @@ public class DemoDao {
 	public UserBean getUserByUsername(String username) throws SQLException {
 		String sql = "SELECT * FROM user WHERE username = ?";
 		return runner.query(sql, new BeanHandler<UserBean>(UserBean.class), new Object[] { username });
-	}
+	}	
 
 	/**
 	 * 新增一个便签
