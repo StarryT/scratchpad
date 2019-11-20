@@ -1,0 +1,13 @@
+body{
+    background-color: #f2f2f2;
+}
+.login-field{
+    border-radius: 5%;
+    background-color: white;
+    width: 40%;
+    margin-left: 28%;
+    margin-top: 5%;
+}
+.form-field{
+    margin-left: 20%;
+}

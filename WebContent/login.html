@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="./external/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+<div class="login-field">
+
+    <br/>
+    <form class="form-field layui-form" action="">
+        <img src="./images/logo.png"/>
+        <div class="layui-form-item">
+            <label class="layui-form-label">帐号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="account" required lay-verify="account" placeholder="请输入帐号" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="password" required lay-verify="password" placeholder="请输入密码"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-warm" lay-submit lay-filter="formDemo">登录</button>
+                <a href="./registry.html" class="layui-btn layui-btn-primary">注册</a>
+            </div>
+        </div>
+    </form>
+    <br/>
+</div>
+<script src="./external/layui/layui.js"></script>
+<script>
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
+        form.verify({
+            account: function(value, item){ //value：表单的值、item：表单的DOM对象
+               if(value == null || value == ""){
+                   return "帐号不能为空"
+               }
+            },
+            password: function (value, item) {
+                if(value == null || value == ""){
+                    return "密码不能为空"
+                }
+            }
+
+        });
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+</body>
+</html>
